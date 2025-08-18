@@ -10,3 +10,7 @@ def build_url(path: str) -> str:
 def getAPI(url: str):
     response = requests.get(url)
     return response
+
+def postAPI(url: str, body):
+    response = requests.post(url, json=body)
+    return response
