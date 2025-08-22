@@ -1,10 +1,10 @@
 from utils import api_util
 from utils.api_util import build_url
-from TestData.endpoints import LOGIN_PATH
+from test_data.endpoints import LOGIN_PATH
 from utils.assertions import assert_status_code
 from utils.schema_validator import response_schema_validator
-from TestData.schemas.login import LoginResponse
-from TestData.expected_responses import invalid_credentials_response
+from test_data.schemas.login import LoginResponse
+from test_data.expected_responses import invalid_credentials_response
 import pytest
 
 

@@ -1,9 +1,9 @@
 import pytest
-from TestData.endpoints import LOGIN_PATH
+from test_data.endpoints import LOGIN_PATH
 from utils.api_util import post_api
 from utils.api_util import build_url
-from TestData.endpoints import ROOM_PATH
-from TestData.test_data.room_data import generate_room
+from test_data.endpoints import ROOM_PATH
+from test_data.test_data.room_data import generate_room
 
 # --- URLs ---
 @pytest.fixture

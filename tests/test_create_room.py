@@ -1,6 +1,6 @@
 from utils import api_util
 from utils.assertions import assert_status_code, assert_room_name_exists
-from TestData.expected_responses import success_response, authentication_required_response
+from test_data.expected_responses import success_response, authentication_required_response
 
 def test_create_new_room_returns_200(auth_headers, room_url, new_room_data):
     response = api_util.post_api(room_url, new_room_data, auth_headers)

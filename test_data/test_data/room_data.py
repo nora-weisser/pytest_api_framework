@@ -1,4 +1,4 @@
-from TestData.schemas.roompayload import RoomPayload
+from test_data.schemas.roompayload import RoomPayload
 from faker import Faker
 from random import randint, sample, choice
 

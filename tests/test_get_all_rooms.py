@@ -1,7 +1,7 @@
 from utils import api_util
 from utils.assertions import assert_status_code
 from utils.schema_validator import response_schema_validator
-from TestData.schemas.room_response import RoomListResponse
+from test_data.schemas.room_response import RoomListResponse
 
 
 def test_get_all_rooms_returns_list(room_url):
