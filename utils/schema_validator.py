@@ -1,6 +1,8 @@
+import allure
 from pydantic import BaseModel, ValidationError
 from typing import Type
 
+@allure.step("Performing Response Schema Validation")
 def response_schema_validator(model: Type[BaseModel], data):
     try:
         return model.model_validate(data)

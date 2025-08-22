@@ -1,3 +1,6 @@
+import allure
+
+@allure.step('Asserting Response Status code')
 def assert_status_code(response, expected_status: int):
     actual_status = response.status_code
     assert actual_status == expected_status, (
