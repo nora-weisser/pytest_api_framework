@@ -12,7 +12,7 @@ A modular API testing framework built with Pytest, designed for testing REST API
 
 ## Setup
 ```
-git clone https://github.com/nora-weisser/pytest_api_framework.git
+git clone git@github.com:nora-weisser/pytest_api_framework.git
 cd pytest_api_framework
 python -m venv venv
 source venv/bin/activate      
