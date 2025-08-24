@@ -1,12 +1,8 @@
-from utils import api_util
-from utils.api_util import build_url
-from test_data.endpoints import LOGIN_PATH
 from utils.assertions import assert_status_code
 from utils.schema_validator import response_schema_validator
-from test_data.schemas.login import LoginResponse
+from test_data.schemas.login_response import LoginResponse
 from test_data.expected_responses import invalid_credentials_response
 import pytest
-
 
 @pytest.mark.parametrize(
     "username, password, expected_status",
@@ -17,13 +13,8 @@ import pytest
         ("", "", 401),
     ]
 )
-def test_login(username, password, expected_status):
-    url = build_url(LOGIN_PATH)
-    login_data = {
-        "username": username,
-        "password": password
-    }
-    response = api_util.post_api(url, login_data)
+def test_login(auth_api, username, password, expected_status):
+    response = auth_api.authenticate(username, password)
 
     if expected_status == 200:
         response_schema_validator(LoginResponse, response.json())

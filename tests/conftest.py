@@ -1,36 +1,34 @@
 import pytest
-from test_data.endpoints import LOGIN_PATH
-from utils.api_util import post_api
-from utils.api_util import build_url
-from test_data.endpoints import ROOM_PATH
+import random
+from utils.api_factory.auth_api import AuthAPI
+from utils.api_factory.room_api import RoomAPI
+from utils.api_factory.booking_api import BookingAPI
 from test_data.test_data.room_data import generate_room
 
-# --- URLs ---
-@pytest.fixture
-def login_url():
-    return build_url(LOGIN_PATH)
+@pytest.fixture(scope="module")
+def auth_api():
+    return AuthAPI()
 
-@pytest.fixture
-def room_url():
-    return build_url(ROOM_PATH)
+@pytest.fixture(scope="module")
+def room_api():
+    return RoomAPI()
 
-
-# --- Data ---
-@pytest.fixture
-def new_room_data():
-    return generate_room().model_dump(mode='json')
+@pytest.fixture(scope="module")
+def booking_api():
+    return BookingAPI()
 
 # --- Authentication ---
 @pytest.fixture
-def get_token(login_url):
-    payload = {
-          "username": "admin",
-          "password": "password"
-        }
-    login_response = post_api(login_url, payload)
-    response_body = login_response.json()
+def get_token(auth_api):
+    response = auth_api.authenticate("admin", "password")
+    response_body = response.json()
     token = response_body["token"]
     return token
+
+@pytest.fixture
+def get_random_room(room_api):
+    response = room_api.get_all_rooms()
+    return random.choice(response.json()["rooms"])
 
 @pytest.fixture
 def auth_headers(get_token):
