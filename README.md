@@ -19,14 +19,12 @@ I use the [Restful Booker Platform](https://github.com/mwinteringham/restful-boo
 ```
 git clone git@github.com:nora-weisser/pytest_api_framework.git
 cd pytest_api_framework
-python -m venv venv
-source venv/bin/activate      
-pip install -r requirements.txt
+poetry install
 ```
 
 ## Run Tests
 ```
-pytest
+poetry run pytest
 ```
 
 ## Run Test Cases With Allure Report
