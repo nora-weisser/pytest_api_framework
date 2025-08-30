@@ -2,6 +2,11 @@
 
 A modular API testing framework built with Pytest, designed for testing REST APIs efficiently with reusable clients, schema validation, and rich reporting.
 
+I use the [Restful Booker Platform](https://github.com/mwinteringham/restful-booker-platform) as the system under test:
+- [Live API Endpoint](https://github.com/mwinteringham/restful-booker-platform)
+- [GitHub Repository](https://github.com/mwinteringham/restful-booker-platform)
+- [Postman Collection](https://www.postman.com/automation-in-testing/restful-booker-collections/collection/ci13ds3/restful-booker-platform)
+
 ## Features
 
 1. Reusable API client classes (GET, POST, etc.)
